@@ -1,0 +1,16 @@
+<div task-group>
+  <p task-group-header>{{header}}</p>
+  <ul class="list-group list-group-flush" task-overflow>
+    <li class="list-group-item" *ngFor="let todo of items" [ngClass]="{'list-group-item-secondary': todo.priority=='LOW', 
+      'list-group-item-warning': todo.priority=='MEDIUM', 
+      'list-group-item-danger': todo.priority=='HIGH'}">
+      {{todo.title}}
+      <button type="button" class="btn btn-sm btn-danger float-right ml-1" (click)="deleteEmit(todo._id)">
+        <i class="far fa-trash-alt"></i>
+      </button>
+      <button type="button" class="btn btn-sm btn-warning float-right" (click)="updateEmit(todo)">
+        <i class="fas fa-pen-square"></i>
+      </button>
+    </li>
+  </ul>
+</div>

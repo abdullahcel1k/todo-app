@@ -1,0 +1,9 @@
+<div class="outer" [ngStyle]="{ 'z-index': loading ? '999' : '-1'}">
+  <div class="middle">
+    <div spinner-background>
+      <div class="spinner-border" role="status" [hidden]="!loading">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+</div>

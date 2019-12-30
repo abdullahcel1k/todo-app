@@ -1,0 +1,20 @@
+[whiteboard] {
+  background-color: #db958b !important;
+  padding: 20px !important;
+  border-radius: 5px !important;
+}
+
+.badge {
+  border-radius: 5px !important;
+  padding: 3px !important;
+}
+
+[app-header] {
+  font-weight: 500;
+  max-height: 256px;
+  min-height: 18px;
+  font-size: 22px;
+  overflow: hidden;
+  word-wrap: break-word;
+  margin-bottom: 5px;
+}

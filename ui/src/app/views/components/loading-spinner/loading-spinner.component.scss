@@ -1,0 +1,23 @@
+[spinner-background] {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 150px;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.spinner-border {
+  color: #2f75bb;
+}

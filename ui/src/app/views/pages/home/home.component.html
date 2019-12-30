@@ -1,0 +1,81 @@
+<loading-spinner [loading]="loading"></loading-spinner>
+<div class="container mt-5" [hidden]="loading">
+  <div class="row">
+    <div class="col-12">
+      <div class="row">
+        <div class="col-6">
+          <img src="../../../../assets/images/app-logo.svg" width="64" height="64" alt="Application logo." />
+          <h4 class="float-right mt-3" app-header><i>This application for management your life.</i></h4>
+        </div>
+        <div class="col-6 mt-3">
+          <button type="button" class="btn btn-success float-right" data-toggle="modal" data-target="#todoModal">
+            Add Task
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mt-3" whiteboard>
+      <div class="row mt-3">
+        <div class="col-3">
+          <task-group [header]="'Analysis'" [items]="analysisTodos" (updateEmitter)="updateListener($event)"
+            (deleteEmitter)="deleteListener($event)"></task-group>
+        </div>
+        <div class="col-3">
+          <task-group [header]="'In Dev'" [items]="devTodos" (updateEmitter)="updateListener($event)"
+            (deleteEmitter)="deleteListener($event)"></task-group>
+        </div>
+        <div class="col-3">
+          <task-group [header]="'In Test'" [items]="testTodos" (updateEmitter)="updateListener($event)"
+            (deleteEmitter)="deleteListener($event)"></task-group>
+        </div>
+        <div class="col-3">
+          <task-group [header]="'Done'" [items]="doneTodos" (updateEmitter)="updateListener($event)"
+            (deleteEmitter)="deleteListener($event)"></task-group>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Task Modal -->
+<div class="modal fade" id="todoModal" tabindex="-1" role="dialog" aria-labelledby="todoModalLabel" aria-hidden="true"
+  [ngClass]="{'show': showModal}" [ngStyle]="{'display': showModal ? 'block': ''}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="todoModalLabel">Add Task</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="showModal=false;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <input type="hidden" name="_id" [(ngModel)]="todoModel._id">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="text" name="title" class="form-control" [(ngModel)]="todoModel.title"
+              placeholder="Please enter title.">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Priorities</label>
+            <select class="form-control" name="priority" [(ngModel)]="todoModel.priority">
+              <option value="" selected>Please select a priority</option>
+              <option *ngFor="let priority of allPriorities" [value]="priority">{{priority}}</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Statusses</label>
+            <select class="form-control" name="status" [(ngModel)]="todoModel.status">
+              <option value="" selected>Please select a status</option>
+              <option *ngFor="let status of allStatusses" [value]="status">{{status}}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="showModal=false;">Close</button>
+        <button type="button" class="btn btn-primary" (click)="saveChanges()" data-dismiss="modal">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
