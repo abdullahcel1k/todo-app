@@ -20,7 +20,7 @@
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.19.1",
-    "mocha": "6.0.1",
+    "mocha": "10.2.0",
     "nodemon": "^2.0.2"
   },
   "eslintConfig": {
